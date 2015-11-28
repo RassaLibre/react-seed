@@ -1,4 +1,4 @@
-# React seed [![Build Status](https://travis-ci.org/badsyntax/react-seed.svg?branch=master)](https://travis-ci.org/badsyntax/react-seed)
+# React seed with Redux
 
 A boilerplate for building React apps with ES6 and webpack.
 
@@ -9,7 +9,7 @@ A boilerplate for building React apps with ES6 and webpack.
 * webpack with react hot loader, and other useful loaders
 * [Local CSS](https://github.com/webpack/css-loader#local-scope)
 * Karma, mocha, chai & sinon for testing with mocking examples
-* Basic flux architecture with app actions, stores and example web API usage
+* Basic Redux architecture with app actions, stores and example web API usage
 * React router ([feature/react-router](https://github.com/badsyntax/react-seed/tree/feature/react-router))
 * Material UI ([feature/material-ui](https://github.com/badsyntax/react-seed/tree/feature/material-ui))
 
@@ -20,12 +20,6 @@ A boilerplate for building React apps with ES6 and webpack.
 ```bash
 git clone --depth=1 https://github.com/badsyntax/react-seed.git my-project
 ```
-
-### Installing with yeoman
-
-1. `npm install -g yo`
-2. `npm install -g generator-react-seed`
-3. Use the generator like so: `yo react-seed`
 
 ## npm scripts
 
