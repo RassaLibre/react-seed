@@ -1,6 +1,7 @@
 import styles from './_Body.scss';
 import React from 'react';
 import Menu from '../Menu/Menu';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 let { PropTypes } = React;
 
@@ -12,8 +13,8 @@ export default class Body extends React.Component {
   };
 
   static propTypes = {
-    items: PropTypes.array.isRequired,
-    activeItem: PropTypes.number
+    items: ImmutablePropTypes.list,
+    activeItem: React.PropTypes.number
   };
 
   render() {

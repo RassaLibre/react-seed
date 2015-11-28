@@ -1,6 +1,7 @@
 import styles from './_Menu.scss';
 import React from 'react';
 import MenuItem from './MenuItem';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 let { Component, PropTypes } = React;
 
@@ -12,7 +13,7 @@ export default class Menu extends Component {
   };
 
   static propTypes = {
-    items: PropTypes.array.isRequired,
+    items: ImmutablePropTypes.list,
     activeItem: PropTypes.number
   };
 
