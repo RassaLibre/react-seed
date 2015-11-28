@@ -3,10 +3,12 @@ import WebAPI from '../util/WebAPI';
 
 import {
   ITEMS_GET_SUCCESS,
-  ITEMS_GET_ERROR
+  ITEMS_GET_ERROR,
+  ACTIVATE_ITEM
 } from '../constants/AppConstants';
 
 export default {
+
   getItems() {
     WebAPI.getItems()
     .then((items) => {
@@ -20,5 +22,13 @@ export default {
         type: ITEMS_GET_ERROR
       });
     });
+  },
+
+  makeActive(id){
+    store.dispatch({
+      type: ACTIVATE_ITEM,
+      id: id
+    });
   }
+
 };

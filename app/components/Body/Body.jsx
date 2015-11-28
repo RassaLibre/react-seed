@@ -7,11 +7,13 @@ let { PropTypes } = React;
 export default class Body extends React.Component {
 
   static defaultProps = {
-    items: []
+    items: [],
+    activeItem: null
   };
 
   static propTypes = {
-    items: PropTypes.array.isRequired
+    items: PropTypes.array.isRequired,
+    activeItem: PropTypes.number
   };
 
   render() {
@@ -20,7 +22,7 @@ export default class Body extends React.Component {
         <h1 className={styles.header}>React Seed</h1>
         <p>This is an example seed app, powered by React, ES6 &amp; webpack.</p>
         <p>Here is some example data:</p>
-        <Menu items={this.props.items} />
+        <Menu items={this.props.items} activeItem={this.props.activeItem} />
         <h2>Getting started</h2>
         <p>Here's a couple of things you can do to get familiar with the project:</p>
         <ol>

@@ -31,7 +31,7 @@ export default class App extends React.Component {
     console.log(this.state, "current state");
     return (
       <div className={styles.app}>
-        <Body items={this.state.items} />
+        <Body items={this.state.items} activeItem={this.state.activeItem} />
         <Footer />
       </div>
     );
