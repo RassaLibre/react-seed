@@ -7,7 +7,11 @@ import Body from '../Body/Body';
 import Footer from '../Footer/Footer';
 
 function getAppState() {
-  return ItemsReducer.getState();
+  let state = ItemsReducer.getState();
+  return {
+    items: state.get('items'),
+    activeItem: state.get('activeItem')
+  };
 }
 
 export default class App extends React.Component {
@@ -31,7 +35,9 @@ export default class App extends React.Component {
     console.log(this.state, "current state");
     return (
       <div className={styles.app}>
-        <Body items={this.state.items} activeItem={this.state.activeItem} />
+        <Body
+          items={this.state.items}
+          activeItem={this.state.activeItem} />
         <Footer />
       </div>
     );

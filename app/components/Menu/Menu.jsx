@@ -24,7 +24,7 @@ export default class Menu extends Component {
             <MenuItem
               key={index}
               item={item}
-              className={(this.props.activeItem === item.id)
+              className={(this.props.activeItem === item.get("id"))
                 ? styles.activeMenuItem 
                 : styles.menuItem} />);
         }, this)}

@@ -1,15 +1,17 @@
 import {ITEMS_GET_SUCCESS, ACTIVATE_ITEM} from '../constants/AppConstants';
 import { createStore } from 'redux';
+import Immutable from 'immutable';
 
-const itemsReducer = (state = {items: [], activeItem: null}, action) => {
+let initStore = Immutable.fromJS({items: [], activeItem: null});
+
+const itemsReducer = (state = initStore, action) => {
 	switch(action.type){
 		case ITEMS_GET_SUCCESS:
-			state.items = state.items.concat(action.items);
-			return state;
+			let imItems = Immutable.fromJS(action.items);
+			return state.set("items", imItems);
 			break;
 		case ACTIVATE_ITEM:
-			state.activeItem = action.id;
-			return state;
+			return state.set("activeItem", action.id);
 			break;
 		default:
 			return state;

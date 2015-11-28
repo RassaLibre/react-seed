@@ -16,13 +16,13 @@ export default class MenuItem extends Component {
 
   onItemClick = (e) => {
     e.preventDefault();
-    AppActions.makeActive(this.props.item.id);
+    AppActions.makeActive(this.props.item.get("id"));
   }
 
   render() {
     return (
       <li className={this.props.className}>
-        <span onClick={this.onItemClick}>{this.props.item.label}</span>
+        <span onClick={this.onItemClick}>{this.props.item.get("label")}</span>
       </li>
     );
   }
