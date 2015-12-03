@@ -11,6 +11,7 @@ A boilerplate for building React apps with ES6 and webpack.
 * Karma, mocha, chai & sinon for testing with mocking examples
 * Basic Redux architecture with app actions, stores and example web API usage
 * Immutable data structures with ImmutableJS
+* Pure render mixin to update only the necessary components
 
 ## Getting started
 
