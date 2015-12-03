@@ -2,10 +2,11 @@ import styles from './_Body.scss';
 import React from 'react';
 import Menu from '../Menu/Menu';
 import ImmutablePropTypes from 'react-immutable-proptypes';
+import PureComponent from 'react-pure-render/component';
 
 let { PropTypes } = React;
 
-export default class Body extends React.Component {
+export default class Body extends PureComponent {
 
   static defaultProps = {
     items: [],

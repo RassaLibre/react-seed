@@ -5,6 +5,7 @@ import AppActions from '../../actions/AppActions';
 import ItemsReducer from '../../reducers/ItemsReducer';
 import Body from '../Body/Body';
 import Footer from '../Footer/Footer';
+import PureComponent from 'react-pure-render/component';
 
 function getAppState() {
   let state = ItemsReducer.getState();
@@ -14,7 +15,7 @@ function getAppState() {
   };
 }
 
-export default class App extends React.Component {
+export default class App extends PureComponent {
 
   state = getAppState()
 

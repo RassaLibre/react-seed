@@ -1,9 +1,10 @@
 import React from 'react';
 import AppActions from '../../actions/AppActions';
+import PureComponent from 'react-pure-render/component';
 
-let { Component, PropTypes } = React;
+let { PropTypes } = React;
 
-export default class MenuItem extends Component {
+export default class MenuItem extends PureComponent {
 
   static propTypes = {
     item: PropTypes.object.isRequired,

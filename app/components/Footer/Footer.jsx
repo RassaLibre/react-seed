@@ -1,7 +1,8 @@
 import styles from './_Footer.scss';
 import React from 'react';
+import PureComponent from 'react-pure-render/component';
 
-export default class Footer extends React.Component {
+export default class Footer extends PureComponent {
   render() {
     var year = (new Date()).getFullYear();
     return (
