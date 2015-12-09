@@ -33,8 +33,20 @@ export default class App extends PureComponent {
     this.setState(getAppState());
   }
 
+  /**
+  * because I am sick and tired of not seing what exactly is in my state
+  * when I use ImmutableJS
+  */
+  logStateToConsole(){
+    let toBeLogged = {
+      items: this.state.items.toJS(),
+      activeItem: this.state.activeItem
+    };
+    console.log(toBeLogged, 'current state');
+  }
+
   render() {
-    console.log(this.state, "current state");
+    this.logStateToConsole();
     console.log('App is being rendered');
     return (
       <div className={styles.app}>
