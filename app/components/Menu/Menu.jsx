@@ -19,6 +19,7 @@ export default class Menu extends PureComponent {
   };
 
   render() {
+    console.log('Menu is being rendered');
     return (
       <ul className={styles.menu}>
         {this.props.items.map((item, index) => {

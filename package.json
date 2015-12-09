@@ -17,7 +17,7 @@
     "lint": "eslint --ext .js --ext .jsx ./app ./webpack && echo No linting errors.",
     "prebuild": "npm run clean",
     "prestart": "npm install",
-    "pretest": "npm install && npm run lint",
+    "pretest": "npm install",
     "pretest-travis": "npm install && npm run lint",
     "start": "NODE_ENV=development node dev-server ./webpack/config",
     "test": "NODE_ENV=test karma start",

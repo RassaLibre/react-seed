@@ -21,6 +21,7 @@ export default class MenuItem extends PureComponent {
   }
 
   render() {
+    console.log('Menu Item ' +this.props.item.get("label")+ ' is being rendered');
     return (
       <li className={this.props.className}>
         <span onClick={this.onItemClick}>{this.props.item.get("label")}</span>

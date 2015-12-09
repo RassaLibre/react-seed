@@ -9,6 +9,7 @@ import PureComponent from 'react-pure-render/component';
 
 function getAppState() {
   let state = ItemsReducer.getState();
+  console.log(ItemsReducer);
   return {
     items: state.get('items'),
     activeItem: state.get('activeItem')
@@ -34,6 +35,7 @@ export default class App extends PureComponent {
 
   render() {
     console.log(this.state, "current state");
+    console.log('App is being rendered');
     return (
       <div className={styles.app}>
         <Body

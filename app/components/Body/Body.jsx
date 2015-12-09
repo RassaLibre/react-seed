@@ -19,6 +19,7 @@ export default class Body extends PureComponent {
   };
 
   render() {
+    console.log('Body is being rendered');
     return (
       <div className={styles.body}>
         <h1 className={styles.header}>React Seed</h1>
