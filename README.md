@@ -32,31 +32,40 @@ git clone --depth=1 https://github.com/badsyntax/react-seed.git my-project
 ### Writing components:
 
 ```js
-// Filename: Menu.jsx
-
-'use strict';
-
 import styles from './_Menu.scss';
 import React from 'react';
 import MenuItem from './MenuItem';
+import ImmutablePropTypes from 'react-immutable-proptypes';
+import PureComponent from 'react-pure-render/component';
 
-let { Component, PropTypes } = React;
+let { PropTypes } = React;
 
-export default class Menu extends Component {
+export default class Menu extends PureComponent {
 
   static defaultProps = {
-    items: []
+    items: [],
+    activeItem: null,
+    onItemClick: null
   };
 
   static propTypes = {
-    items: PropTypes.array.isRequired
+    items: ImmutablePropTypes.list,
+    activeItem: PropTypes.number,
+    onItemClick: PropTypes.func
   };
 
   render() {
     return (
       <ul className={styles.menu}>
-        {this.props.items.map((item) => {
-          return (<MenuItem item={item} />);
+        {this.props.items.map((item, index) => {
+          return (
+            <MenuItem
+              onItemClick={this.props.onItemClick}
+              key={index}
+              item={item}
+              className={(this.props.activeItem === item.get("id"))
+                ? styles.activeMenuItem 
+                : styles.menuItem} />);
         }, this)}
       </ul>
     );
