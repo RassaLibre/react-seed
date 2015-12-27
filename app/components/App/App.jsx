@@ -2,59 +2,58 @@ import styles from './_App.scss';
 
 import React from 'react';
 import AppActions from '../../actions/AppActions';
-import ItemsReducer from '../../reducers/ItemsReducer';
 import Body from '../Body/Body';
 import Footer from '../Footer/Footer';
 import PureComponent from 'react-pure-render/component';
+import ImmutablePropTypes from 'react-immutable-proptypes';
+import { connect } from 'react-redux';
 
-function getAppState() {
-  let state = ItemsReducer.getState();
-  console.log(ItemsReducer);
-  return {
-    items: state.get('items'),
-    activeItem: state.get('activeItem')
-  };
-}
 
-export default class App extends PureComponent {
+class App extends PureComponent {
 
-  state = getAppState()
-
+  /**
+  *
+  */
   componentDidMount() {
-    ItemsReducer.subscribe(this.onChange);
-    AppActions.getItems();
-  }
-
-  componentWillUnmount() {
-    ItemsReducer.unsubscribe(this.onChange);
-  }
-
-  onChange = () => {
-    this.setState(getAppState());
+    if(this.props.getItems) this.props.getItems();
   }
 
   /**
-  * because I am sick and tired of not seing what exactly is in my state
-  * when I use ImmutableJS
+  *
   */
-  logStateToConsole(){
-    let toBeLogged = {
-      items: this.state.items.toJS(),
-      activeItem: this.state.activeItem
-    };
-    console.log(toBeLogged, 'current state');
-  }
-
   render() {
-    this.logStateToConsole();
-    console.log('App is being rendered');
     return (
       <div className={styles.app}>
         <Body
-          items={this.state.items}
-          activeItem={this.state.activeItem} />
+          onItemClick={this.props.onItemClick}
+          items={this.props.items}
+          activeItem={this.props.activeItem} />
         <Footer />
       </div>
     );
   }
 }
+
+/**
+*
+*/
+App.propTypes = {
+  items: ImmutablePropTypes.list,
+  activeItem: React.PropTypes.number,
+  getItems: React.PropTypes.func,
+  onItemClick: React.PropTypes.func
+};
+
+/**
+*
+*/
+function select(state){
+  return {
+    onItemClick: AppActions.makeActive,
+    getItems: AppActions.getItems,
+    items: state.get('items'),
+    activeItem: state.get('activeItem')
+  };
+}
+
+export default connect(select)(App)

@@ -10,22 +10,26 @@ export default class Body extends PureComponent {
 
   static defaultProps = {
     items: [],
-    activeItem: null
+    activeItem: null,
+    onItemClick: null
   };
 
   static propTypes = {
+    onItemClick: PropTypes.func,
     items: ImmutablePropTypes.list,
-    activeItem: React.PropTypes.number
+    activeItem: PropTypes.number
   };
 
   render() {
-    console.log('Body is being rendered');
     return (
       <div className={styles.body}>
         <h1 className={styles.header}>React Seed</h1>
         <p>This is an example seed app, powered by React, ES6 &amp; webpack.</p>
         <p>Here is some example data:</p>
-        <Menu items={this.props.items} activeItem={this.props.activeItem} />
+        <Menu
+          onItemClick={this.props.onItemClick}
+          items={this.props.items}
+          activeItem={this.props.activeItem} />
         <h2>Getting started</h2>
         <p>Here's a couple of things you can do to get familiar with the project:</p>
         <ol>

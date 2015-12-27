@@ -1,27 +1,39 @@
 import React from 'react';
-import AppActions from '../../actions/AppActions';
 import PureComponent from 'react-pure-render/component';
 
 let { PropTypes } = React;
 
 export default class MenuItem extends PureComponent {
 
+  /**
+  *
+  */
   static propTypes = {
     item: PropTypes.object.isRequired,
-    className: PropTypes.string
+    className: PropTypes.string,
+    onItemClick: PropTypes.func
   };
 
+  /**
+  *
+  */
   static defaultProps = {
-    className: undefined
+    className: undefined,
+    onItemClick: null
   }
 
+  /**
+  *
+  */
   onItemClick = (e) => {
     e.preventDefault();
-    AppActions.makeActive(this.props.item.get("id"));
+    this.props.onItemClick(this.props.item.get("id"));
   }
 
+  /**
+  *
+  */
   render() {
-    console.log('Menu Item ' +this.props.item.get("label")+ ' is being rendered');
     return (
       <li className={this.props.className}>
         <span onClick={this.onItemClick}>{this.props.item.get("label")}</span>

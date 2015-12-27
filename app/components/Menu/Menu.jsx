@@ -10,21 +10,23 @@ export default class Menu extends PureComponent {
 
   static defaultProps = {
     items: [],
-    activeItem: null
+    activeItem: null,
+    onItemClick: null
   };
 
   static propTypes = {
     items: ImmutablePropTypes.list,
-    activeItem: PropTypes.number
+    activeItem: PropTypes.number,
+    onItemClick: PropTypes.func
   };
 
   render() {
-    console.log('Menu is being rendered');
     return (
       <ul className={styles.menu}>
         {this.props.items.map((item, index) => {
           return (
             <MenuItem
+              onItemClick={this.props.onItemClick}
               key={index}
               item={item}
               className={(this.props.activeItem === item.get("id"))

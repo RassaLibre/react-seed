@@ -4,7 +4,6 @@ import PureComponent from 'react-pure-render/component';
 
 export default class Footer extends PureComponent {
   render() {
-  	console.log('Footer is being rendered');
     var year = (new Date()).getFullYear();
     return (
       <footer className={styles.footer}>
